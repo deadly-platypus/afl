@@ -16,7 +16,7 @@
 #
 # This script downloads, patches, and builds a version of QEMU with
 # minor tweaks to allow non-instrumented binaries to be run under
-# afl-fuzz. 
+# afl-fuzz.
 #
 # The modifications reside in patches/*. The standalone QEMU binary
 # will be written to ../afl-qemu-trace.
@@ -131,6 +131,7 @@ echo "[*] Applying patches..."
 patch -p1 <../patches/elfload.diff || exit 1
 patch -p1 <../patches/cpu-exec.diff || exit 1
 patch -p1 <../patches/syscall.diff || exit 1
+patch -p1 <../patches/memfd.diff || exit 1
 
 echo "[+] Patching done."
 
